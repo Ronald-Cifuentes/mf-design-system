@@ -11,7 +11,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "lint": "npx eslint . --ext .tsx --fix",
-    "ts-check": "tsc --noEmit"
+    "ts-check": "tsc --noEmit",
+    "tar": "tar czvf ./assets/mf_design_system-dts.tgz -C ./.wp_federation/ mf_design_system"
   },
   "license": "MIT",
   "author": {

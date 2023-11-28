@@ -47,34 +47,34 @@ module.exports = (_, argv) => ({
           loader: "babel-loader",
         },
       },
-      // {
-      //   test: /\.tsx?$/,
-      //   exclude: /node_modules/,
-      //   use: [
-      //     {
-      //       loader: "dts-loader",
-      //       options: {
-      //         name: "mf_design_system", // The name configured in ModuleFederationPlugin
-      //         exposes: {
-      //           // The exposes configured in ModuleFederationPlugin
-      //           "./": "./src/components/Button",
-      //         },
-      //         typesOutputDir: ".wp_federation", // Optional, default is '.wp_federation'
-      //       },
-      //     },
-      //   ],
-      // },
       {
         test: /\.tsx?$/,
+        exclude: /node_modules/,
         use: [
           {
-            loader: "ts-loader",
+            loader: "dts-loader",
             options: {
-              transpileOnly: true,
+              name: "mf_design_system", // The name configured in ModuleFederationPlugin
+              exposes: {
+                // The exposes configured in ModuleFederationPlugin
+                "./": "./src/components/Button",
+              },
+              typesOutputDir: ".wp_federation", // Optional, default is '.wp_federation'
             },
           },
         ],
       },
+      // {
+      //   test: /\.tsx?$/,
+      //   use: [
+      //     {
+      //       loader: "ts-loader",
+      //       options: {
+      //         transpileOnly: true,
+      //       },
+      //     },
+      //   ],
+      // },
     ],
   },
 
